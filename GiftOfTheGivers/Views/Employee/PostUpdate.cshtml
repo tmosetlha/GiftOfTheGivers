@@ -1,0 +1,39 @@
+﻿@model GiftOfTheGivers.Models.ReliefUpdate
+@{
+    ViewData["Title"] = "Post Relief Update";
+}
+
+<h1>Post a Relief Update</h1>
+
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-success">@TempData["Message"]</div>
+}
+
+<form asp-action="PostUpdate" method="post" class="col-md-6">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div class="mb-3">
+        <label asp-for="ReliefProjectId" class="form-label">Relief Project</label>
+        <select asp-for="ReliefProjectId" class="form-select">
+            @foreach (var project in (List<GiftOfTheGivers.Models.ReliefProject>)ViewBag.Projects)
+            {
+                <option value="@project.ReliefProjectId">@project.ProjectName</option>
+            }
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Title" class="form-label"></label>
+        <input asp-for="Title" class="form-control" placeholder="Update headline" />
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Content" class="form-label"></label>
+        <textarea asp-for="Content" class="form-control" rows="5" placeholder="What's happening on the ground?"></textarea>
+        <span asp-validation-for="Content" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-gold">Post Update</button>
+</form>

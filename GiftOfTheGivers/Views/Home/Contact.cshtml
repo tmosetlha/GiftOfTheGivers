@@ -1,0 +1,38 @@
+﻿@{
+    ViewData["Title"] = "Contact";
+}
+
+<h1>Contact Us</h1>
+
+<p>Have a question, want to partner with us, or need to report an urgent relief need? Reach out below.</p>
+
+<div class="row">
+    <div class="col-md-6">
+        <h2>Get in Touch</h2>
+        <ul class="list-unstyled">
+            <li><strong>Email:</strong> info@giftofthegivers.org</li>
+            <li><strong>Phone:</strong> +27 (0)11 000 0000</li>
+            <li><strong>Head Office:</strong> Johannesburg, South Africa</li>
+        </ul>
+    </div>
+
+    <div class="col-md-6">
+        <h2>Send a Message</h2>
+        <form>
+            <div class="mb-3">
+                <label for="contactName" class="form-label">Name</label>
+                <input type="text" class="form-control" id="contactName" placeholder="Your name" />
+            </div>
+            <div class="mb-3">
+                <label for="contactEmail" class="form-label">Email</label>
+                <input type="email" class="form-control" id="contactEmail" placeholder="you@example.com" />
+            </div>
+            <div class="mb-3">
+                <label for="contactMessage" class="form-label">Message</label>
+                <textarea class="form-control" id="contactMessage" rows="4" placeholder="How can we help?"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Send</button>
+        </form>
+        <p class="text-muted mt-2"><small>Prototype stage — this form does not submit yet.</small></p>
+    </div>
+</div>

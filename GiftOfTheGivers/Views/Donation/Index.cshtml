@@ -1,0 +1,59 @@
+﻿@model GiftOfTheGivers.Models.Donation
+@{
+    ViewData["Title"] = "Donate";
+}
+
+<h1>Make a Donation</h1>
+<p>Every contribution helps us respond faster to communities in crisis.</p>
+
+<form asp-action="Index" method="post" class="col-md-6">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div class="mb-3">
+        <label asp-for="Amount" class="form-label"></label>
+        <input asp-for="Amount" class="form-control" placeholder="e.g. 500.00" />
+        <span asp-validation-for="Amount" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Currency" class="form-label"></label>
+        <select asp-for="Currency" class="form-select">
+            <option value="ZAR">ZAR - South African Rand</option>
+            <option value="USD">USD - US Dollar</option>
+            <option value="EUR">EUR - Euro</option>
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="DonationType" class="form-label"></label>
+        <select asp-for="DonationType" class="form-select">
+            <option value="OneTime">One-Time</option>
+            <option value="Recurring">Recurring</option>
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="ReliefProjectId" class="form-label">Relief Project (optional)</label>
+        <select asp-for="ReliefProjectId" class="form-select">
+            <option value="">General Fund (not tied to a specific project)</option>
+            @foreach (var project in (List<GiftOfTheGivers.Models.ReliefProject>)ViewBag.Projects)
+            {
+                <option value="@project.ReliefProjectId">@project.ProjectName</option>
+            }
+        </select>
+    </div>
+
+    @if (User.Identity != null && User.Identity.IsAuthenticated)
+    {
+        <div class="mb-3 form-check">
+            <input asp-for="IsAnonymous" class="form-check-input" type="checkbox" />
+            <label asp-for="IsAnonymous" class="form-check-label">Donate anonymously</label>
+        </div>
+    }
+    else
+    {
+        <p class="text-muted">You are donating as a guest. This donation will be recorded as anonymous.</p>
+    }
+
+    <button type="submit" class="btn btn-gold">Donate Now</button>
+</form>

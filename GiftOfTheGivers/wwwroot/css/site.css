@@ -1,31 +1,124 @@
-html {
-  font-size: 14px;
+/* ==========================================================
+   Gift of the Givers Foundation — Site Stylesheet
+   Light mode, white background (matches logo background)
+   ========================================================== */
+
+:root {
+    --gotg-green: #1B5A38;
+    --gotg-green-dark: #0F3D26;
+    --gotg-gold: #C9A227;
+    --gotg-gold-light: #E3C878;
+    --gotg-white: #FFFFFF;
+    --gotg-offwhite: #F7F6F2;
+    --gotg-text: #212529;
 }
 
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+html, body {
+    height: 100%;
+    background-color: var(--gotg-white);
+    color: var(--gotg-text);
+    font-family: 'Segoe UI', Roboto, Arial, sans-serif;
 }
 
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+/* ---------- Navbar ---------- */
+.navbar {
+    background-color: var(--gotg-white) !important;
+    border-bottom: 3px solid var(--gotg-green) !important;
 }
 
-html {
-  position: relative;
-  min-height: 100%;
+.navbar-brand {
+    color: var(--gotg-green) !important;
+    font-weight: 700;
+    font-size: 1.3rem;
 }
 
-body {
-  margin-bottom: 60px;
+.navbar-nav .nav-link {
+    color: var(--gotg-text) !important;
+    font-weight: 500;
+    margin-right: 0.5rem;
 }
 
-.form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
-  color: var(--bs-secondary-color);
-  text-align: end;
+    .navbar-nav .nav-link:hover {
+        color: var(--gotg-green) !important;
+    }
+
+    .navbar-nav .nav-link.active {
+        color: var(--gotg-gold) !important;
+        border-bottom: 2px solid var(--gotg-gold);
+    }
+
+/* ---------- Buttons ---------- */
+.btn-primary {
+    background-color: var(--gotg-green);
+    border-color: var(--gotg-green);
 }
 
-.form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
-  text-align: start;
+    .btn-primary:hover, .btn-primary:focus {
+        background-color: var(--gotg-green-dark);
+        border-color: var(--gotg-green-dark);
+    }
+
+.btn-gold {
+    background-color: var(--gotg-gold);
+    border-color: var(--gotg-gold);
+    color: var(--gotg-white);
+    font-weight: 600;
 }
+
+    .btn-gold:hover {
+        background-color: #b3901f;
+        border-color: #b3901f;
+        color: var(--gotg-white);
+    }
+
+/* ---------- Headings ---------- */
+h1, h2, h3, h4 {
+    color: var(--gotg-green);
+    font-weight: 700;
+}
+
+a {
+    color: var(--gotg-green);
+}
+
+    a:hover {
+        color: var(--gotg-gold);
+    }
+
+/* ---------- Cards (project/donation/volunteer listings) ---------- */
+.card {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+}
+
+.card-header {
+    background-color: var(--gotg-green);
+    color: var(--gotg-white);
+    font-weight: 600;
+}
+
+/* ---------- Footer ---------- */
+.footer {
+    background-color: var(--gotg-offwhite);
+    color: #555;
+    padding: 1rem 0;
+    border-top: 1px solid #e0e0e0;
+}
+
+    .footer a {
+        color: var(--gotg-green);
+    }
+
+/* ---------- Hero / banner section ---------- */
+.hero {
+    background-color: var(--gotg-green);
+    color: var(--gotg-white);
+    padding: 3rem 1rem;
+    text-align: center;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+}
+
+    .hero h1 {
+        color: var(--gotg-white);
+    }

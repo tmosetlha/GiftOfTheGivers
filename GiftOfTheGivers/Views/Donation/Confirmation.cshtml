@@ -1,0 +1,22 @@
+﻿@model GiftOfTheGivers.Models.Donation
+@{
+    ViewData["Title"] = "Thank You";
+}
+
+<div class="text-center">
+    <h1>Thank You for Your Donation!</h1>
+    <p>Your contribution has been recorded successfully.</p>
+
+    <div class="card mx-auto" style="max-width: 500px;">
+        <div class="card-header">Donation Receipt</div>
+        <div class="card-body text-start">
+            <p><strong>Amount:</strong> @Model.Amount.ToString("N2") @Model.Currency</p>
+            <p><strong>Type:</strong> @Model.DonationType</p>
+            <p><strong>Date:</strong> @Model.DonationDate.ToString("dd MMM yyyy, HH:mm") UTC</p>
+            <p><strong>Status:</strong> @Model.Status</p>
+            <p><strong>Tax Certificate Number:</strong> @Model.TaxCertificateNumber</p>
+        </div>
+    </div>
+
+    <a asp-controller="Home" asp-action="Index" class="btn btn-primary mt-3">Back to Home</a>
+</div>

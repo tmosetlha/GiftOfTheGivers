@@ -1,0 +1,40 @@
+﻿@model List<GiftOfTheGivers.Models.Volunteer>
+@{
+    ViewData["Title"] = "Volunteer Sign-Ups";
+}
+
+<h1>Volunteer Sign-Ups</h1>
+<a asp-action="PostUpdate" class="btn btn-primary mb-3">Post a Relief Update</a>
+
+@if (!Model.Any())
+{
+    <p>No volunteers have signed up yet.</p>
+}
+else
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Skills</th>
+                <th>Availability</th>
+                <th>Phone</th>
+                <th>Registered</th>
+                <th>Confirmed</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var v in Model)
+            {
+                <tr>
+                    <td>@v.FullName</td>
+                    <td>@v.Skills</td>
+                    <td>@v.Availability</td>
+                    <td>@v.PhoneNumber</td>
+                    <td>@v.RegisteredDate.ToString("dd MMM yyyy")</td>
+                    <td>@(v.IsConfirmed ? "Yes" : "Pending")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

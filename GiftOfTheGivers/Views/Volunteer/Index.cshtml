@@ -1,0 +1,40 @@
+﻿@model GiftOfTheGivers.Models.Volunteer
+@{
+    ViewData["Title"] = "Volunteer";
+}
+
+<h1>Register as a Volunteer</h1>
+<p>Tell us about yourself and how you'd like to help during relief efforts.</p>
+
+<form asp-action="Index" method="post" class="col-md-6">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div class="mb-3">
+        <label asp-for="FullName" class="form-label"></label>
+        <input asp-for="FullName" class="form-control" placeholder="Your full name" />
+        <span asp-validation-for="FullName" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Skills" class="form-label">Skills</label>
+        <input asp-for="Skills" class="form-control" placeholder="e.g. First Aid, Driving, Logistics" />
+        <span asp-validation-for="Skills" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Availability" class="form-label"></label>
+        <select asp-for="Availability" class="form-select">
+            <option value="Weekdays">Weekdays</option>
+            <option value="Weekends">Weekends</option>
+            <option value="OnCall">On-Call / Flexible</option>
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="PhoneNumber" class="form-label"></label>
+        <input asp-for="PhoneNumber" class="form-control" placeholder="e.g. 082 000 0000" />
+        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-gold">Register Interest</button>
+</form>

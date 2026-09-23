@@ -1,0 +1,16 @@
+﻿@{
+    ViewData["Title"] = "Choose Your Role";
+}
+
+<h1>Welcome!</h1>
+<p>How will you be using Gift of the Givers?</p>
+
+<form asp-controller="AccountSetup" asp-action="ChooseRole" method="post" class="col-md-6">
+    <div class="mb-3">
+        <select name="role" class="form-select">
+            <option value="Donor">Donor — I want to donate or volunteer</option>
+            <option value="Employee">Employee — I work for the Foundation</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-gold">Continue</button>
+</form>
